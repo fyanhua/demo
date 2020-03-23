@@ -1,6 +1,6 @@
 package com.example.demo.dao;
 
-public class userDAO {
+public class GithubUser {
     private String name;
     private Long id;
     private String bio;
