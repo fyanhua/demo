@@ -1,8 +1,8 @@
 package com.example.demo.provider;
 
 import com.alibaba.fastjson.JSON;
-import com.example.demo.dao.AccessTokenDAO;
-import com.example.demo.dao.GithubUser;
+import com.example.demo.dto.AccessTokenDTO;
+import com.example.demo.dto.GithubUser;
 import okhttp3.*;
 import org.springframework.stereotype.Component;
 
@@ -12,11 +12,11 @@ import java.io.IOException;
 
 public class GithubProvider {
 
-    public String getAccessToken(AccessTokenDAO accessTokenDAO){
+    public String getAccessToken(AccessTokenDTO accessTokenDTO){
         MediaType mediaType = MediaType.get("application/json; charset=utf-8");
         OkHttpClient client = new OkHttpClient();
 
-            RequestBody body = FormBody.create(mediaType,JSON.toJSONString(accessTokenDAO));
+            RequestBody body = FormBody.create(mediaType,JSON.toJSONString(accessTokenDTO));
             Request request = new Request.Builder()
                      .url("https://github.com/login/oauth/access_token")
                      .post(body)

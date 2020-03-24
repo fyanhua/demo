@@ -1,6 +1,6 @@
-package com.example.demo.dao;
+package com.example.demo.dto;
 
-public class AccessTokenDAO {
+public class AccessTokenDTO {
     private  String client_id;
     private  String client_secret;
     private  String code;
