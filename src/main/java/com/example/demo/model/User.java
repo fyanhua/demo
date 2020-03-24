@@ -1,18 +1,21 @@
 package com.example.demo.model;
 
+
 public class User {
     private  Integer id;
     private  String name;
     private  String accountId;
     private  String token;
     private  Long gmtCreate;
+    private  Long gmtModified;
+    private  String avatarUrl;
 
-    public Long getGmtCreate() {
-        return gmtCreate;
+    public String getAvatarUrl() {
+        return avatarUrl;
     }
 
-    public void setGmtCreate(Long gmtCreate) {
-        this.gmtCreate = gmtCreate;
+    public void setAvatarUrl(String avatarUrl) {
+        this.avatarUrl = avatarUrl;
     }
 
     public Long getGmtModified() {
@@ -22,8 +25,6 @@ public class User {
     public void setGmtModified(Long gmtModified) {
         this.gmtModified = gmtModified;
     }
-
-    private  Long gmtModified;
 
     public Integer getId() {
         return id;
@@ -57,5 +58,11 @@ public class User {
         this.token = token;
     }
 
+    public Long getGmtCreate() {
+        return gmtCreate;
+    }
 
+    public void setGmtCreate(Long gmtCreate) {
+        this.gmtCreate = gmtCreate;
+    }
 }
