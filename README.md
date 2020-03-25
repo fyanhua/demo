@@ -1,3 +1,4 @@
-##社区+问卷
+## 社区+问卷
 
-##no
+## no
+## mvn -Dmybatis.generator.overwrite=true mybatis-generator:generate

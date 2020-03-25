@@ -2,7 +2,7 @@
 <html xmlns:th="http://www.thymeleaf.org">
 
 <body>
-<div th:fragment="footer">
+<div th:fragment="nav">
 <nav class="navbar navbar-default" >
     <div class="container-fluid" data-th-bgcolor="green">
         <div class="navbar-header">
@@ -44,7 +44,7 @@
                     <ul class="dropdown-menu">
                         <li><a href="/profile/questions">我的问题</a></li>
                         <li><a href="#">我的资料</a></li>
-                        <li><a href="#">退出登陆</a></li>
+                        <li><a href="/logout">退出登陆</a></li>
                     </ul>
                 </li>
                 <li th:if="${session.user == null}">
