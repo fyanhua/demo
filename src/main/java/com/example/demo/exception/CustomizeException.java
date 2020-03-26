@@ -7,12 +7,9 @@ public class CustomizeException extends RuntimeException {
     public CustomizeException(ICustomizeErrorCode errorCode){
 
         this.code =errorCode.getCode();
-    this.message=errorCode.getMessage();
-    }
+        this.message=errorCode.getMessage(); }
 
-    public Integer getCode() {
-        return code;
-    }
+    public Integer getCode() { return code; }
 
     @Override
     public String getMessage() {
