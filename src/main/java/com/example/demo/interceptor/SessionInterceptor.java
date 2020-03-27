@@ -35,7 +35,9 @@ public class SessionInterceptor implements HandlerInterceptor {
                             .andTokenEqualTo(token);
                     List<User> users = userMapper.selectByExample(userExample);
                     if (users.size()  !=0){
+                        //添加user到session
                         request.getSession().setAttribute("user",users.get(0));
+                        //获取回复未读
                         Long unreadCount = notificationService.unreadCount(users.get(0).getId());
                         request.getSession().setAttribute("unreadCount",unreadCount);
                     }
