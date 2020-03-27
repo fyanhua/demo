@@ -68,7 +68,7 @@ body{
 
 .question-related {
     line-height: 20px;
-    font-size: 12px;
+    font-size: 18px;
     margin-left: 0;
     list-style: none;
     padding-left: 0;
@@ -169,4 +169,10 @@ body{
 .red {
     color: red !important;
 }
-
+.outhref {
+    line-height: 20px;
+    font-size: 25px;
+    margin-left: 0;
+    list-style: none;
+    padding-left: 0;
+}
