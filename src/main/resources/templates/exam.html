@@ -1,0 +1,69 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>心理自评系统-问卷页面</title>
+    <link rel="stylesheet" href="../static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="../static/easyui/themes/icon.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="../static/css/me.css"/>
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script src="../static/js/bootstrap.min.js" type="application/javascript"></script>
+    <script type="text/javascript" src="../static/easyui/jquery.min.js"></script>
+    <script type="text/javascript" src="../static/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="../static/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript">
+        $(function(){
+            var spanText = $("#sp").text();
+            if(spanText == ""){
+                $("#ft").hide();
+            }
+            $("#exam").combobox({
+                url:'ExamList',
+                valueField:'examId',
+                textField:'examName',
+                //editable :不让在combo的框内直接输入文字
+                editable:false,
+                panelHeight:'auto'
+            })
+            $("#subm").click(function(){
+                if($("#exam").val() == ""){
+                    $.messager.alert("系统提示","请选择量表进行测试！");
+                    return false;
+                }
+                return true;
+            })
+        })
+    </script>
+
+</head>
+<body>
+<div th:insert="navigation ::nav"></div>
+<div style="margin-top:2%;margin-left:2%">
+</div>
+<br>
+<br>
+<center style="margin-top:2%">
+    <form action="toExamPageList" method="post">
+        <table cellpadding="15px">
+            <tr>
+                <td>请选择量表</td>
+                <td><input id="exam" name="exam_id" ></td>
+            </tr>
+            <tr>
+                <td colspan="2" align="center"><input id="subm" type="submit" value="确定"></td>
+            </tr>
+        </table>
+    </form>
+    <br>
+    <br>
+    <br>
+    <br>
+<!--    <a href="/" class="easyui-linkbutton" data-options="iconCls:'icon-back'">回 到 首 页</a>-->
+    <button type="submit" class="btn btn-success ">
+        <a href="/">回到首页</a>
+    </button>
+</center>
+</body>
+</html>

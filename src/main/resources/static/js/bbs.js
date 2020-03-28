@@ -5,6 +5,7 @@ function post() {
     comment2target(questionId, 1, content);
 }
 
+
 function comment2target(targetId, type, content) {
     if (!content) {
         alert("回复不能为空");
