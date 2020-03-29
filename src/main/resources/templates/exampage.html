@@ -1,0 +1,58 @@
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>正在测试</title>
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/default/easyui.css">
+    <link rel="stylesheet" type="text/css" href="/static/easyui/themes/icon.css">
+    <link rel="stylesheet" href="../static/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../static/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="../static/css/me.css"/>
+    <script type="text/javascript" src="/static/easyui/jquery.min.js"></script>
+    <script src="../static/js/jquery-3.4.1.min.js"></script>
+    <script type="text/javascript" src="/static/easyui/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="/static/easyui/locale/easyui-lang-zh_CN.js"></script>
+    <script src="../static/js/bootstrap.min.js" type="application/javascript"></script>
+    <script type="text/javascript">
+
+        $(function(){
+            $("#submi").click(function(){
+                var flag=confirm("确定要交卷吗？");
+                if(flag){
+                    return true;
+                }else{
+                    return false;
+                }
+            });
+        });
+    </script>
+</head>
+<body class="easyui-layout">
+<div th:insert="navigation ::nav"></div>
+<div data-options="region:'center'">
+    <div style="margin-left:25%;font-size:15px">
+        <form action="postExam" method="post" name="examform">
+            <table cellpadding="20px">
+                <tr>
+                    <td><font style="font-weight:bold">一、单选题</font>（请选择最符合您状况的选项）</td>
+                </tr>
+                <tr th:each ="m,iterStat:${questionList}" >
+                    <td th:text="${iterStat.index+1}+'、'+ ${m.subject}"></td>
+                    <td><input type="radio" name="radio1" th:name="${m.id}"  th:value="A" th:text="'A、'+${m.optiona}"></td>
+                    <td><input type="radio" name="radio1" th:name="${m.id}" th:value="B" th:text="'B、'+${m.optionb}"></td>
+                    <td><input type="radio" name="radio1" th:name="${m.id}"  th:value="C" th:text="'C、'+${m.optionc}"></td>
+                    <td><input type="radio" name="radio1" th:name="${m.id}" th:value="D" th:text="'D、'+${m.optiond}"></td>
+                </tr>
+            </table>
+
+
+                    <input type="submit" width="100" value="交卷" id="submi"
+                           class="btn btn-success">
+
+            <br>
+            <br>
+        </form>
+    </div>
+</div>
+</body>
+</html>

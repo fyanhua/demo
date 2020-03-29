@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.ExamQuestionsMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo.model.ExamQuestion">
+        <id column="id"   property="id" />
+        <result column="subject"   property="subject" />
+        <result column="exam_name"  property="examName" />
+        <result column="exam_id"   property="examId" />
+        <result column="optiona"   property="optiona" />
+        <result column="optionb"  property="optionb" />
+        <result column="optionc"  property="optionc" />
+        <result column="optiond"  property="optiond" />
+    </resultMap>
+
+
+    <select id="findExamRadioQuestions" parameterType="int" resultType="java.util.HashMap">
+   select q.id,q.subject, q.exam_id,
+        q.optiona,q.optionb,
+        q.optionc,q.optiond,e.exam_name
+        from  exam e,options q
+        where
+       q.exam_id=e.exam_id
+       and
+       e.exam_id=#{value}
+  </select>
+
+</mapper>
